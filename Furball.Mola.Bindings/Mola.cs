@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -46,6 +47,13 @@ public enum PixelType : byte {
 	Argb32
 }
 
+public struct Vertex {
+	public Vector2    Position;
+	public Vector2    TextureCoordinate;
+	public RgbaVector Color;
+	public long       TexId;
+}
+
 public static class Mola {
 	private const string            DLL_NAME           = "Mola";
 	private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
@@ -58,4 +66,7 @@ public static class Mola {
 
 	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "clear_render_bitmap")]
 	public static extern unsafe void ClearRenderBitmap(RenderBitmap* bimap);
+
+	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "rasterize_triangle")]
+	public static extern unsafe void rasterize_triangle(RenderBitmap* bitmap, Vertex vtx1, Vertex vtx2, Vertex vtx3);
 }
