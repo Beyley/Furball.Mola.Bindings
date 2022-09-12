@@ -47,11 +47,11 @@ public enum PixelType : byte {
 	Argb32
 }
 
-public struct Vertex {
-	public Vector2    Position;
-	public Vector2    TextureCoordinate;
-	public RgbaVector Color;
-	public long       TexId;
+public unsafe struct Vertex {
+	public Vector2       Position;
+	public Vector2       TextureCoordinate;
+	public RgbaVector    Color;
+	public RenderBitmap* TexId;
 }
 
 public static class Mola {
@@ -68,5 +68,8 @@ public static class Mola {
 	public static extern unsafe void ClearRenderBitmap(RenderBitmap* bimap);
 
 	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "rasterize_triangle")]
-	public static extern unsafe void rasterize_triangle(RenderBitmap* bitmap, Vertex vtx1, Vertex vtx2, Vertex vtx3);
+	public static extern unsafe void RasterizeTriangle(RenderBitmap* bitmap, Vertex vtx1, Vertex vtx2, Vertex vtx3);
+
+	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "rasterize_line")]
+	public static extern unsafe void RasterizeLine(RenderBitmap* bitmap, float x1, float y1, float x2, float y2, Rgba32 col);
 }
