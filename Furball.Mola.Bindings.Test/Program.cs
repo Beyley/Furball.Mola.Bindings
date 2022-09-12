@@ -39,6 +39,10 @@ public class Program {
 			0, 1, 2, 0, 2, 3,
 			4, 5, 6, 4, 6, 7
 		};
+		renderBitmap->ScissorX = 100;
+		renderBitmap->ScissorY = 100;
+		renderBitmap->ScissorW = 500; 
+		renderBitmap->ScissorH = 500;
 		// for (int i = 0; i < 1000; i++)
 		Mola.DrawOntoBitmap(renderBitmap, vertices, indices, 12);
 		// for (int i = 0; i < 1000; i++)

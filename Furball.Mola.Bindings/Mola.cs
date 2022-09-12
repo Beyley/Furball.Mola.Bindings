@@ -12,6 +12,10 @@ public unsafe struct RenderBitmap {
 	public uint      Height;
 	public Rgba32*   Rgba32Ptr;
 	public Argb32*   Argb32Ptr;
+	public uint      ScissorX;
+	public uint      ScissorY;
+	public uint      ScissorW;
+	public uint      ScissorH;
 
 	public Image AsImage() {
 		long destSize = this.Width * this.Height * sizeof(Rgba32);
