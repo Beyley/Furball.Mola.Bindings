@@ -72,4 +72,7 @@ public static class Mola {
 
 	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "rasterize_line")]
 	public static extern unsafe void RasterizeLine(RenderBitmap* bitmap, float x1, float y1, float x2, float y2, Rgba32 col);
+	
+	[DllImport(DLL_NAME, CallingConvention = CALLING_CONVENTION, EntryPoint = "draw_onto_bitmap")]
+	public static extern unsafe void DrawOntoBitmap(RenderBitmap* bitmap, Vertex* vertices, ushort* indices, uint indexCount);
 }
