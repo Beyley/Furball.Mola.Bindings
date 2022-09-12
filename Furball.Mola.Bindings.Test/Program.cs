@@ -28,12 +28,19 @@ public class Program {
 			new Vertex { Position = new Vector2(10, 10), Color     = new RgbaVector(1, 0, 1), TexId = texture, TextureCoordinate = new Vector2(0) },
 			new Vertex { Position = new Vector2(1000, 10), Color   = new RgbaVector(1, 1, 1), TexId = texture, TextureCoordinate = new Vector2(1, 0) },
 			new Vertex { Position = new Vector2(1000, 1000), Color = new RgbaVector(1, 1, 0), TexId = texture, TextureCoordinate = new Vector2(1) },
-			new Vertex { Position = new Vector2(10, 1000), Color   = new RgbaVector(0, 1, 1), TexId = texture, TextureCoordinate = new Vector2(0, 1) }
+			new Vertex { Position = new Vector2(10, 1000), Color   = new RgbaVector(0, 1, 1), TexId = texture, TextureCoordinate = new Vector2(0, 1) },
+			
+			new Vertex { Position = new Vector2(500, 500), Color     = new RgbaVector(1, 0, 1, 0.5f), TexId = texture, TextureCoordinate = new Vector2(0) },
+			new Vertex { Position = new Vector2(750, 500), Color   = new RgbaVector(1, 1, 1, 0.5f), TexId = texture, TextureCoordinate = new Vector2(1, 0) },
+			new Vertex { Position = new Vector2(750, 750), Color = new RgbaVector(1, 1, 0, 0.5f), TexId = texture, TextureCoordinate = new Vector2(1) },
+			new Vertex { Position = new Vector2(500, 750), Color   = new RgbaVector(0, 1, 1, 0.5f), TexId = texture, TextureCoordinate = new Vector2(0, 1) },
 		};
 		ushort* indices = stackalloc ushort[] {
-			0, 1, 2, 0, 2, 3
+			0, 1, 2, 0, 2, 3,
+			4, 5, 6, 4, 6, 7
 		};
-		Mola.DrawOntoBitmap(renderBitmap, vertices, indices, 6);
+		// for (int i = 0; i < 1000; i++)
+		Mola.DrawOntoBitmap(renderBitmap, vertices, indices, 12);
 		// for (int i = 0; i < 1000; i++)
 		// Mola.RasterizeTriangle(
 		// 	renderBitmap,
